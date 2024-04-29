@@ -64,8 +64,9 @@ const loginController = async (req , res) =>{
     }) ; 
      // we hve to save refresh token inside the cookie
     res.cookie('jwt', refreshToken , {
-        httpOnly :false , 
-        secure : true 
+        httpOnly :true , 
+        secure : true ,
+        sameSite: 'none'
      } );
     /// if evrthing is fine the send data of user 
     // return res.status(200).json({
@@ -117,8 +118,9 @@ const refreshTokenController = async (req , res) => {
 const logoutController = async (req , res) => {
     try {
         res.clearCookie('jwt' , {
-            httpOnly :false , 
-            secure : true 
+            httpOnly :true , 
+            secure : true ,
+            sameSite: 'none'
          }) ;         
         return res.send(success(200 , "user has been logout successfully")) ; 
     } catch (e) {
