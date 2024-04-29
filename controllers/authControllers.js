@@ -66,7 +66,7 @@ const loginController = async (req , res) =>{
     res.cookie('jwt', refreshToken , {
         httpOnly :true , 
         secure : true ,
-        sameSite: 'none'
+        same_site: 'none'
      } );
     /// if evrthing is fine the send data of user 
     // return res.status(200).json({
@@ -120,7 +120,7 @@ const logoutController = async (req , res) => {
         res.clearCookie('jwt' , {
             httpOnly :true , 
             secure : true ,
-            sameSite: 'none'
+            same_site: 'none'
          }) ;         
         return res.send(success(200 , "user has been logout successfully")) ; 
     } catch (e) {
